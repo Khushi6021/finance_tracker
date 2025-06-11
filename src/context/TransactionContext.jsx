@@ -11,7 +11,7 @@ export const TransactionProvider = ({ children }) => {
 
   const fetchTransactions = useCallback(async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/transactions');
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/transactions`);
       if (!res.ok) throw new Error('Failed to fetch transactions');
       const data = await res.json();
       setTransactions(data);
@@ -26,7 +26,7 @@ export const TransactionProvider = ({ children }) => {
 
   const addTransaction = async (transaction) => {
     try {
-      const res = await fetch('http://localhost:5000/api/transactions', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/transactions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(transaction),
@@ -41,7 +41,7 @@ export const TransactionProvider = ({ children }) => {
 
   const deleteTransaction = async (_id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/transactions/${_id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/transactions/${_id}`, {
         method: 'DELETE',
       });
       if (!res.ok) throw new Error('Failed to delete transaction');
@@ -54,7 +54,7 @@ export const TransactionProvider = ({ children }) => {
   const updateTransaction = async (updatedTransaction) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/transactions/${updatedTransaction._id}`,
+        `${import.meta.env.VITE_API_URL}/api/transactions/${updatedTransaction._id}`,
         {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
