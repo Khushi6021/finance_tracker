@@ -1,0 +1,101 @@
+.transactionItem {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(60, 60, 60, 0.07);
+  padding: 20px 24px;
+  margin: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: box-shadow 0.2s;
+}
+
+.transactionItem:hover {
+  box-shadow: 0 6px 24px rgba(60, 60, 60, 0.12);
+}
+
+.transactionDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transactionAmount {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2e8b57;
+  letter-spacing: 0.5px;
+}
+
+.transactionCategory {
+  font-size: 1rem;
+  color: #5b5b5b;
+  background: #f3f7f6;
+  border-radius: 6px;
+  padding: 2px 10px;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.transactionDescription {
+  font-size: 0.98rem;
+  color: #3a3a3a;
+  margin-top: 6px;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.readMore {
+  color: #2176ff;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 8px;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.readMore:hover {
+  color: #174ea6;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 24px;
+}
+
+.editButton,
+.deleteButton {
+  padding: 7px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  outline: none;
+}
+
+.editButton {
+  background: #eef6fb;
+  color: #2176ff;
+  border: 1px solid #b7d8f7;
+}
+
+.editButton:hover {
+  background: #d6eaff;
+  color: #174ea6;
+}
+
+.deleteButton {
+  background: #ffeaea;
+  color: #e03a3a;
+  border: 1px solid #f7b7b7;
+}
+
+.deleteButton:hover {
+  background: #ffd6d6;
+  color: #a61d1d;
+}

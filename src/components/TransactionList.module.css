@@ -1,0 +1,122 @@
+.transactionListContainer {
+  background: #f9fafc;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(80, 80, 80, 0.08);
+  padding: 32px 28px;
+  max-width: 700px;
+  margin: 32px auto;
+}
+
+/* Header/title */
+.head {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a365d;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Top actions row for toggle button */
+.topActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+/* Toggle button style */
+.toggleBtn {
+  background: #eef6fb;
+  color: #2176ff;
+  border: 1.5px solid #b7d8f7;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  margin: 0; /* Remove any default margin */
+}
+
+.toggleBtn:hover {
+  background: #d6eaff;
+  color: #174ea6;
+}
+
+/* Filter container */
+.filterContainer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.filterContainer label {
+  font-size: 1rem;
+  color: #3a3a3a;
+  font-weight: 500;
+}
+
+.dropdown {
+  background: #fff;
+  border: 1.5px solid #b7d8f7;
+  border-radius: 8px;
+  padding: 7px 18px;
+  font-size: 1rem;
+  color: #2176ff;
+  font-weight: 600;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.dropdown:focus {
+  border: 2px solid #2176ff;
+}
+
+/* Section for transaction list */
+.section {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(60, 60, 60, 0.05);
+  padding: 18px 16px;
+  margin-top: 8px;
+}
+
+.sectionTitle {
+  font-size: 1.18rem;
+  color: #2176ff;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.18s;
+}
+
+.sectionTitle:hover {
+  color: #174ea6;
+}
+
+.transactionItems {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Empty message style */
+.emptyMessage {
+  text-align: center;
+  margin-top: 32px;
+  color: #a0aec0;
+  background: #f3f7f6;
+  border-radius: 10px;
+  padding: 32px 10px;
+  font-size: 1.18rem;
+  font-weight: 500;
+}
+
+/* Remove unused/duplicate classes for clarity */

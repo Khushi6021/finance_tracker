@@ -1,0 +1,205 @@
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(40, 60, 90, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 40px rgba(40, 60, 90, 0.18);
+  padding: 36px 28px 28px 28px;
+  min-width: 350px;
+  max-width: 420px;
+  width: 98vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: popIn 0.2s;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.96); opacity: 0.7; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.backButton {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #2176ff;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.18s;
+}
+
+.backButton:hover {
+  color: #174ea6;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+
+.modalForm {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.leftPart {
+  flex: 1 1 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.textarea {
+  min-height: 70px;
+  max-height: 110px;
+  resize: vertical;
+  border-radius: 8px;
+  border: 1.5px solid #b7d8f7;
+  padding: 10px 12px;
+  font-size: 1rem;
+  color: #2e2e2e;
+  background: #f9fafc;
+  outline: none;
+  transition: border 0.18s;
+}
+
+.textarea:focus {
+  border: 2px solid #2176ff;
+}
+
+.rightPart {
+  flex: 1 1 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input {
+  border-radius: 8px;
+  border: 1.5px solid #b7d8f7;
+  padding: 10px 12px;
+  font-size: 1rem;
+  color: #2e2e2e;
+  background: #f9fafc;
+  outline: none;
+  transition: border 0.18s;
+}
+
+.input:focus {
+  border: 2px solid #2176ff;
+}
+
+.toggleGroup {
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.toggleButton {
+  flex: 1;
+  padding: 8px 0;
+  border-radius: 7px;
+  border: 1.5px solid #b7d8f7;
+  background: #eef6fb;
+  color: #2176ff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+}
+
+.toggleButton.active,
+.toggleButton:active {
+  background: #2176ff;
+  color: #fff;
+  border: 2px solid #2176ff;
+}
+
+.toggleButton:hover {
+  background: #d6eaff;
+}
+
+.select {
+  border-radius: 7px;
+  border: 1.5px solid #b7d8f7;
+  padding: 9px 12px;
+  font-size: 1rem;
+  color: #2176ff;
+  background: #f9fafc;
+  font-weight: 600;
+  outline: none;
+  transition: border 0.18s;
+}
+
+.select:focus {
+  border: 2px solid #2176ff;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  justify-content: flex-end;
+}
+
+.saveBtn {
+  background: #2176ff;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 22px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(33, 118, 255, 0.06);
+  transition: background 0.18s, box-shadow 0.18s;
+}
+
+.saveBtn:hover {
+  background: #174ea6;
+  box-shadow: 0 4px 16px rgba(33, 118, 255, 0.11);
+}
+
+.cancelBtn {
+  background: #ffeaea;
+  color: #e03a3a;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.cancelBtn:hover {
+  background: #ffd6d6;
+  color: #a61d1d;
+}
