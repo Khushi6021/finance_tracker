@@ -82,8 +82,8 @@ const TransactionPage = ({ view }) => {
       {isTransactionListEmpty ? (
         <div className={styles.summaryBox}>
           <blockquote>
-            <p>"Track every penny, master your money."</p>
-            <p>"Small habits today build financial freedom tomorrow."</p>
+            <p>""Track. Save. Grow.""</p>
+          
           </blockquote>
         </div>
       ) : (

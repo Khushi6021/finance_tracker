@@ -10,20 +10,17 @@ const TransactionModal = ({ isOpen, closeModal, editable }) => {
   const [category, setCategory] = useState('Food');
   const [description, setDescription] = useState('');
 
-  // Manage scroll lock reliably
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
-
     return () => {
       document.body.style.overflow = 'auto';
     };
   }, [isOpen]);
 
-  // Load editable transaction data into form
   useEffect(() => {
     if (editable) {
       setType(editable.type);
@@ -43,7 +40,7 @@ const TransactionModal = ({ isOpen, closeModal, editable }) => {
 
     const newTransaction = {
       type,
-      amount: Number(amount), // Convert string to number before saving
+      amount: Number(amount),
       category,
       description,
     };
@@ -74,22 +71,11 @@ const TransactionModal = ({ isOpen, closeModal, editable }) => {
   if (!isOpen) return null;
 
   const hasStartedTyping = amount.trim() !== '' || description.trim() !== '';
-
-  const handleDescriptionChange = (e) => {
-    const inputText = e.target.value;
-    if (inputText.length <= 30) {
-      setDescription(inputText);
-    } else {
-      setDescription(inputText.slice(0, 30));
-    }
-  };
-
   const characterCount = description.length;
 
   return (
     <div className={styles.modalBackdrop} onClick={handleBackdropClick}>
       <div className={styles.modal}>
-        <button className={styles.backButton} onClick={closeModal}>←</button>
         <h2>{editable ? 'Edit Transaction' : 'Add Transaction'}</h2>
 
         <form onSubmit={handleSubmit} className={styles.modalForm}>
@@ -97,7 +83,13 @@ const TransactionModal = ({ isOpen, closeModal, editable }) => {
             <textarea
               placeholder="Add Description..."
               value={description}
-              onChange={handleDescriptionChange}
+              onChange={(e) =>
+                setDescription(
+                  e.target.value.length <= 30
+                    ? e.target.value
+                    : e.target.value.slice(0, 30)
+                )
+              }
               className={styles.textarea}
             />
             <p
@@ -108,7 +100,7 @@ const TransactionModal = ({ isOpen, closeModal, editable }) => {
                 color: characterCount >= 30 ? 'red' : 'gray',
               }}
             >
-              {characterCount}/30 characters
+              {characterCount}
             </p>
           </div>
 
@@ -149,7 +141,7 @@ const TransactionModal = ({ isOpen, closeModal, editable }) => {
               <option value="Food">Food</option>
               <option value="Travel">Travel</option>
               <option value="Billing">Billing</option>
-              <option value="Other">Other</option> {/* Consistent with filter */}
+              <option value="Other">Other</option>
             </select>
 
             {hasStartedTyping && (

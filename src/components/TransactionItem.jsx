@@ -8,8 +8,7 @@ const TransactionItem = ({ transaction, openEditModal, deleteTransaction }) => {
     setDescriptionExpanded(!isDescriptionExpanded);
   };
 
-  // Check if description length exceeds limit for truncation
-  const isDescriptionLong = transaction.description.length > 30;
+  const isDescriptionLong = transaction.description?.length > 30;
 
   return (
     <div className={styles.transactionItem}>
@@ -26,8 +25,6 @@ const TransactionItem = ({ transaction, openEditModal, deleteTransaction }) => {
           {isDescriptionExpanded || !isDescriptionLong
             ? transaction.description
             : `${transaction.description.slice(0, 30)}...`}
-
-          {/* Show toggle link if description is long */}
           {isDescriptionLong && (
             <span className={styles.readMore} onClick={toggleDescription}>
               {isDescriptionExpanded ? ' Read Less' : ' Read More'}
@@ -43,8 +40,10 @@ const TransactionItem = ({ transaction, openEditModal, deleteTransaction }) => {
         >
           Edit
         </button>
+
+        {/* Use _id instead of id for MongoDB */}
         <button
-          onClick={() => deleteTransaction(transaction.id)}
+          onClick={() => deleteTransaction(transaction._id)}
           className={styles.deleteButton}
         >
           Delete

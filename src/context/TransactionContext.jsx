@@ -9,10 +9,9 @@ export const useTransaction = () => {
 export const TransactionProvider = ({ children }) => {
   const [transactions, setTransactions] = useState([]);
 
-  // Fetch transactions from backend API
   const fetchTransactions = useCallback(async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/transactions'); // Adjust your API base URL & endpoint
+      const res = await fetch('http://localhost:5000/api/transactions');
       if (!res.ok) throw new Error('Failed to fetch transactions');
       const data = await res.json();
       setTransactions(data);
@@ -40,13 +39,13 @@ export const TransactionProvider = ({ children }) => {
     }
   };
 
-  const deleteTransaction = async (id) => {
+  const deleteTransaction = async (_id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/transactions/${id}`, {
+      const res = await fetch(`http://localhost:5000/api/transactions/${_id}`, {
         method: 'DELETE',
       });
       if (!res.ok) throw new Error('Failed to delete transaction');
-      setTransactions((prev) => prev.filter((tx) => tx.id !== id));
+      setTransactions((prev) => prev.filter((tx) => tx._id !== _id));
     } catch (error) {
       console.error('Error deleting transaction:', error);
     }
@@ -55,7 +54,7 @@ export const TransactionProvider = ({ children }) => {
   const updateTransaction = async (updatedTransaction) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/transactions/${updatedTransaction.id}`,
+        `http://localhost:5000/api/transactions/${updatedTransaction._id}`,
         {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
@@ -65,7 +64,7 @@ export const TransactionProvider = ({ children }) => {
       if (!res.ok) throw new Error('Failed to update transaction');
       const updated = await res.json();
       setTransactions((prev) =>
-        prev.map((tx) => (tx.id === updated.id ? updated : tx))
+        prev.map((tx) => (tx._id === updated._id ? updated : tx))
       );
     } catch (error) {
       console.error('Error updating transaction:', error);

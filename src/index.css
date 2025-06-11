@@ -1,9 +1,10 @@
 .container {
-  background: #f6f9fe;
+  background: #042153;
   min-height: 100vh;
   padding: 24px 20px 60px 20px;
-  max-width: 780px;
+  max-width: 180px;
   margin: 0 auto;
+  background-color: #650d0d;
 }
 
 .addBtn {
@@ -28,7 +29,7 @@
 }
 
 .summaryBox {
-  background: #ffffff;
+  
   border-radius: 14px;
   padding: 32px 24px;
   margin: 28px 0;
@@ -38,6 +39,7 @@
 
 .summaryBox blockquote {
   font-style: italic;
+  background-color: #b7d8f7;
   color: #5b5b5b;
   line-height: 1.6;
   margin: 0;

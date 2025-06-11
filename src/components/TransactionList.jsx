@@ -21,7 +21,6 @@ const TransactionList = ({ transactions, openEditModal }) => {
     <div className={styles.transactionListContainer}>
       <h2 className={styles.head}>Transactions List</h2>
 
-      {/* Top actions row: Toggle button aligned right */}
       <div className={styles.topActions}>
         <button className={styles.toggleBtn} onClick={toggleTransactions}>
           {showTransactions ? 'Hide Transactions' : 'Show All Transactions'}
@@ -59,10 +58,10 @@ const TransactionList = ({ transactions, openEditModal }) => {
             <div className={styles.transactionItems}>
               {filteredTransactions.map((transaction) => (
                 <TransactionItem
-                  key={transaction.id}
+                  key={transaction._id}
                   transaction={transaction}
                   openEditModal={openEditModal}
-                  deleteTransaction={deleteTransaction}
+                  deleteTransaction={() => deleteTransaction(transaction._id)}
                 />
               ))}
             </div>
