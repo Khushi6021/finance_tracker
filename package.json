@@ -1,5 +1,10 @@
 {
-  "name": "vishal-prepstat-expense-tracker",
+  
+  "name": "khushi-expense-tracker",
+  "description": "Khushi's Expense Tracker app",
+
+
+
   "version": "0.1.0",
   "private": true,
   "dependencies": {
