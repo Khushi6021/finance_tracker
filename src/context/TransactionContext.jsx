@@ -6,12 +6,15 @@ export const useTransaction = () => {
   return useContext(TransactionContext);
 };
 
+// ✅ Hardcoded API base URL instead of .env
+const API_BASE_URL = 'https://finance-tracker-backend-1.onrender.com';
+
 export const TransactionProvider = ({ children }) => {
   const [transactions, setTransactions] = useState([]);
 
   const fetchTransactions = useCallback(async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/transactions`);
+      const res = await fetch(`${API_BASE_URL}/api/transactions`);
       if (!res.ok) throw new Error('Failed to fetch transactions');
       const data = await res.json();
       setTransactions(data);
@@ -26,7 +29,7 @@ export const TransactionProvider = ({ children }) => {
 
   const addTransaction = async (transaction) => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/transactions`, {
+      const res = await fetch(`${API_BASE_URL}/api/transactions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(transaction),
@@ -41,7 +44,7 @@ export const TransactionProvider = ({ children }) => {
 
   const deleteTransaction = async (_id) => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/transactions/${_id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/transactions/${_id}`, {
         method: 'DELETE',
       });
       if (!res.ok) throw new Error('Failed to delete transaction');
@@ -53,14 +56,11 @@ export const TransactionProvider = ({ children }) => {
 
   const updateTransaction = async (updatedTransaction) => {
     try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/transactions/${updatedTransaction._id}`,
-        {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(updatedTransaction),
-        }
-      );
+      const res = await fetch(`${API_BASE_URL}/api/transactions/${updatedTransaction._id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedTransaction),
+      });
       if (!res.ok) throw new Error('Failed to update transaction');
       const updated = await res.json();
       setTransactions((prev) =>
