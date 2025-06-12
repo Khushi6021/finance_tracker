@@ -7,7 +7,7 @@ export const useTransaction = () => {
 };
 
 // ✅ Hardcoded API base URL instead of .env
-const API_BASE_URL = 'https://finance-tracker-backend-1.onrender.com';
+const API_BASE_URL = 'https://finance-tracker-backend-2-jwg7.onrender.com';
 
 export const TransactionProvider = ({ children }) => {
   const [transactions, setTransactions] = useState([]);
